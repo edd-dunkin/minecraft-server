@@ -5,9 +5,12 @@
         curl -o /tmp/bootstrap https://raw.githubusercontent.com/edd-dunkin/minecraft-server/master/bootstrap
         chmod +x /tmp/bootstrap
         ```
-      + Networking (tab) add custom PORTs
+      + Networking (tab) add custom PORTs (both UDP and TCP)
           - 25565
           - 25575
+          - 19132
+          - 19133
+            
   2. Update and install packages
       + `sudo add-apt-repository ppa:openjdk-r/ppa` adds openjdk repo
       + `sudo apt-get update -y && sudo apt-get upgrade -y`
