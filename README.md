@@ -9,11 +9,12 @@
           - 25565
           - 25575
   2. Update and install packages
+      + `sudo add-apt-repository ppa:openjdk-r/ppa` adds openjdk repo
       + `sudo apt-get update -y && sudo apt-get upgrade -y`
           - *There may be a dialog that requires you to press enter to keep the local version of a config file.*
-      + `sudo apt-get install -y curl openjdk-8-jdk openjdk-8-jre`
-  3. `sudo /tmp/bootstrap`
-  4. Setup up permissions
+      + `sudo apt-get install -y curl openjdk-21-jdk openjdk-21-jre`
+  4. `sudo /tmp/bootstrap`
+  5. Setup up permissions
       1. `cd /opt/minecraft`
       2. `sudo ./launch`
       3. `sudo sed -i s/white-list=false/white-list=true/ server.properties`
@@ -47,5 +48,5 @@
         ]
         ```
         -->
-  5. `sudo systemctl enable minecraft.service`
-  6. `sudo systemctl start minecraft.service`
+  6. `sudo systemctl enable minecraft.service`
+  7. `sudo systemctl start minecraft.service`
