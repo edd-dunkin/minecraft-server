@@ -1,6 +1,6 @@
 #! /bin/bash
 
-MC=https://launcher.mojang.com/v1/objects/0a269b5f2c5b93b1712d0f5dc43b6182b9ab254e/server.jar
+MC=https://piston-data.mojang.com/v1/objects/450698d1863ab5180c25d7c804ef0fe6369dd1ba/server.jar
 WD=/opt/minecraft
 
 rm -rf $WD
@@ -27,7 +27,7 @@ debug "create $PID"
 HALT=$(heredoc "$WD/halt" ". $PID | xargs kill -9")
 debug "create $HALT"
 
-LAUNCH=$(heredoc "$WD/launch" "/usr/bin/java -Xms14g -Xmx14g -jar $WD/server.jar --nogui")
+LAUNCH=$(heredoc "$WD/launch" "/usr/bin/java -Xms1024M -Xmx1024M -jar $WD/server.jar --nogui")
 debug "create $LAUNCH"
 
 SERVICE="/etc/systemd/system/minecraft.service"
@@ -35,11 +35,11 @@ rm -rf $SERVICE
 debug "create $SERVICE"
 cat > $SERVICE <<HEREDOC
 [Unit]
-Description=Black Mesa Minecraft Server
+Description=Test Server
 
 [Service]
 ExecStart=$LAUNCH
-ExecStartPost=echo "Black Mesa Minecraft server started."
+ExecStartPost=echo "Test server started."
 SuccessExitStatus=143
 WorkingDirectory=/opt/minecraft
 
